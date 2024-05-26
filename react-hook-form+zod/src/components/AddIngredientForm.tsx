@@ -14,7 +14,7 @@ function App() {
       title: '',
     },
   });
-  const { fields, append } = useFieldArray({
+  const { fields, append, remove } = useFieldArray({
     control,
     name: 'ingredients',
   });
@@ -25,7 +25,6 @@ function App() {
 
   return (
     <div className={'flex gap-5'}>
-      {/*new form*/}
       <section className="flex items-center justify-center ">
         <form
           onSubmit={handleSubmit(handleOnSubmitForm)}
@@ -50,6 +49,10 @@ function App() {
                 <option value="g">G</option>
                 <option value="l">L</option>
               </select>
+
+              <button type={'button'} onClick={() => remove(i)}>
+                Remove
+              </button>
             </div>
           ))}
 
